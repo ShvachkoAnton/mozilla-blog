@@ -1,0 +1,15 @@
+
+{% block content %}
+<h3>Автор блога:{{profile.user}}</h3>
+
+<p1>Биография автора блога:{{profile.bio}}</p1>
+
+<ul>
+{% for post in posts %}
+<li>
+<h1>{{post.title}}</h1>
+{{post.text}}
+</li>
+{% endfor %}
+</ul>
+{% endblock content %}

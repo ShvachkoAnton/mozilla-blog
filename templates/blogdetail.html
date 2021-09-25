@@ -1,0 +1,28 @@
+{% block content %}
+<h1>{{post.title}}</h1>
+<p>Пост создан:{{post.created_on}}</p>
+<p><a href="{% url 'userpage' post.author.username %}">Автор</a>:{{post.author}}</p>
+<p>Описание:{{post.text}}</p>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
