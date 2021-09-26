@@ -15,12 +15,15 @@ class PostDetailView(DetailView):
     pk_url_kwarg='id'
 def userpage(request,username):
     user=User.objects.get(username=username)
-    posts=Post.objects.filter(author=user)
+    posts=Post.objects.filter(author=user) #все посты автора
     profile=Profile.objects.get(user=user) #профиль автора
     return render(request, 'profilepage.html',{'user': user,
      'posts':posts, 'profile': profile} )
 
-    
 
+def allblogers(request):
+    users=User.objects.all()
+    return render(request, 'allusers.html', {'users':users})
+    
 
 

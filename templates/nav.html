@@ -1,0 +1,17 @@
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+<nav class="my-2 my-md-0 mr-md-3">
+<h><a href="{% url "all" %}">Главная страница</a></h>
+<h1><a href="{% url "allauthors" %}">Список блоггеров</a></h1>
+<span class=="user">
+{% if request.user.is_authenticated %}
+Привет, {{request.user.username}}
+<a href="{% url "logout" %}">Выйти</a>
+{% else %}
+<a href="{% url "login" %}">Войти</a>
+</br>
+<a href="{% url "register" %}">Зарегистрироваться</a>
+{% endif %}
+</span>
+</nav>
+</nav>
