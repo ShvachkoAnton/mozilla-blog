@@ -6,14 +6,24 @@
 <p>Пост создан:{{post.created_on}}</p>
 <p><a href="{% url 'userpage' post.author.username %}">Автор</a>:{{post.author}}</p>
 <p>Описание:{{post.text}}</p>
+{% for comment in comments %}
+Комментарий {{forloop.counter}}: {{comment.body}}
+</br>
 
+{% empty %}
+Комментарии отсутствуют
+{% endfor %}
 
-
-
-
-
-
-
+{% if new_comment %}
+  <h2>Ваш комментарий был добавлен</h2>
+{% else %}
+  <h2>Добавить новый комментарий</h2>
+  <form method="post">
+    {{ comment_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Add comment"></p>
+  </form>
+{% endif %}
 
 
 {% endblock content %}
